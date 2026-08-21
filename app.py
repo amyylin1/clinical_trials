@@ -25,7 +25,7 @@ selected_condition = st.sidebar.selectbox(
 )
 
 # Get unique gender/sex options from your DataFrame dynamically
-gender_options = ["All"] + list(df['Sex'].dropna().unique())
+gender_options = list(df['Sex'].dropna().unique())
 selected_gender = st.sidebar.selectbox("Select Gender", gender_options)
 
 # --- Apply Combined Filters ---
