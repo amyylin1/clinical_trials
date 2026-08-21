@@ -9,7 +9,15 @@ st.write("Exploring immunotherapy trial distributions across cancer types.")
 df = pd.read_csv("data.csv")
 
 # Interactive filter sidebar
-selected_condition = st.sidebar.selectbox("Select Condition Keyword", ["lung", "breast", "brain"])
+selected_condition = st.sidebar.selectbox("Select Condition Keyword", 'Melanoma',
+    'Non-small Cell Lung Cancer',
+    'Carcinoma, Non-Small-Cell Lung',
+    'Breast Cancer',
+    'Neoplasms',
+    'Head and Neck Squamous Cell Carcinoma',
+    'Renal Cell Carcinoma',
+    'Hepatocellular Carcinoma',
+    'Advanced Solid Tumors')
 
 # Filter DataFrame
 filtered_df = df[df['Conditions'].str.contains(selected_condition, case=False, na=False)]
