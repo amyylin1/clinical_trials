@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Ping App
         run: |
-          curl -sS https://your-app-name.streamlit.app > /dev/null
+          curl -sS https://h2lzomy25z7wad5moa7tjy.streamlit.app/ > /dev/null
