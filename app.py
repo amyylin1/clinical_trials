@@ -56,7 +56,7 @@ else:
     ax.set_ylabel("Condition")
 
     ax.set_yticklabels([
-    f"{label.get_text()[:16]}..." if len(label.get_text()) > 16 else label.get_text()
+    f"{label.get_text()[:30]}..." if len(label.get_text()) > 30 else label.get_text()
     for label in ax.get_yticklabels()
     ])
 
