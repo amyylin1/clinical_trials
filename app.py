@@ -46,6 +46,7 @@ if filtered_df.empty:
     st.warning("No trials match the selected filters.")
 else:
     fig, ax = plt.subplots(figsize=(10, 5))
+
     counts = filtered_df['Conditions'].value_counts().head(10)
 
     # Plot horizontal bar chart
@@ -53,6 +54,12 @@ else:
     ax.invert_yaxis()  # Keep highest count at top
     ax.set_xlabel("Number of Trials")
     ax.set_ylabel("Condition")
+
+    ax.set_yticklabels([
+    f"{label.get_text()[:16]}..." if len(label.get_text()) > 16 else label.get_text()
+    for label in ax.get_yticklabels()
+    ])
+
     plt.tight_layout()
 
     st.pyplot(fig)
