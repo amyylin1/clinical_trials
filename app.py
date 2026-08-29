@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import textwrap
 import matplotlib.pyplot as plt
 
 st.title("Clinical Trial Landscape Analysis")
@@ -49,16 +50,19 @@ else:
 
     counts = filtered_df['Conditions'].value_counts().head(10)
 
+    # wrap long labels across multiple lines
+    wrapped_labels = [textwrap.fill(label, width=25) for label in counts.index]
+
     # Plot horizontal bar chart
     counts.plot(kind='barh', ax=ax, color='#008cff')
+
     ax.invert_yaxis()  # Keep highest count at top
     ax.set_xlabel("Number of Trials")
     ax.set_ylabel("Condition")
 
-    ax.set_yticklabels([
-    f"{label.get_text()[:30]}..." if len(label.get_text()) > 30 else label.get_text()
-    for label in ax.get_yticklabels()
-    ])
+    #ax.set_yticklabels([
+    #f"{label.get_text()[:30]}..." if len(label.get_text()) > 30 else label.get_text()
+    #for label in ax.get_yticklabels()])
 
     plt.tight_layout()
 
